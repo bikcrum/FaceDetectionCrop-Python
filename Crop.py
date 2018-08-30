@@ -4,7 +4,6 @@ Created on Thu Aug 30 10:35:49 2018
 
 @author: Bikram Pandit
 """
-#read image
 import cv2
 import copy
 import os
