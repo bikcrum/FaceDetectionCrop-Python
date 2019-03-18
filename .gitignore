@@ -1,0 +1,5 @@
+images/*
+images/cropped/*
+!images/PLACE\ YOUR\ IMAGE\ IN\ THIS\ DIRECTORY
+!images/cropped
+!images/cropped/CROPPED\ IMAGES\ WILL\ BE\ GENERATED\ HERE

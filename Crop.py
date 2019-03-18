@@ -4,7 +4,6 @@ Created on Thu Aug 30 10:35:49 2018
 
 @author: Bikram Pandit
 """
-#read image
 import cv2
 import copy
 import os
@@ -12,24 +11,20 @@ import sys, getopt
 
 """ EDIT THIS """
 #This dir should only contain images
-imageDir = 'C:/Users/Proshore/Desktop/images/'
+imageDir = 'images/'
 
 #This will be empty
-croppedImageDir = 'C:/Users/Proshore/Desktop/images/cropped/'
+croppedImageDir = 'images/cropped/'
 
 
 
 """ DON'T EDIT THIS """
 
-args, video_src = getopt.getopt(sys.argv[1:], '', ['cascade=', 'nested-cascade='])
-args = dict(args)
-cascade_fn = args.get('--cascade', "../../data/haarcascades/haarcascade_frontalface_alt.xml")
-faceCascade = cv2.CascadeClassifier(cascade_fn)
+faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
         
 def detect(img, cascade):
     #gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    rects = cascade.detectMultiScale(img, scaleFactor=1.3, minNeighbors=5, minSize=(30, 30),
-                                     flags=cv2.CASCADE_SCALE_IMAGE)
+    rects = cascade.detectMultiScale(img, scaleFactor=1.3, minNeighbors=5)
     return rects
 
 def drawRect(rects,image):
@@ -72,7 +67,7 @@ def drawRect(rects,image):
     
 for imageFile in os.listdir(imageDir):
     image = cv2.imread(imageDir+imageFile)
-    if image == None:
+    if image is None:
         continue
     image_org = copy.deepcopy(image)
 
