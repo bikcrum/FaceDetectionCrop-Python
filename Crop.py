@@ -20,6 +20,12 @@ croppedImageDir = 'images/cropped/'
 
 """ DON'T EDIT THIS """
 
+#uncomment following 3 lines for windows OS
+
+#args, video_src = getopt.getopt(sys.argv[1:], '', ['cascade=', 'nested-cascade='])
+#args = dict(args)
+#cascade_fn = args.get('--cascade', "../../data/haarcascades/haarcascade_frontalface_alt.xml")
+
 faceCascade = cv2.CascadeClassifier('haarcascade_frontalface_alt.xml')
         
 def detect(img, cascade):
